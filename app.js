@@ -5,15 +5,6 @@ const app = express()
 const port = 3000
 
 app.use('/new', (req, res, next) => {
-  console.log('Request URL:', req.originalUrl)
-  next()
-  }, (req, res, next) => {
-  console.log('Request Type:', req.method)
-  next()
-  }, (req, res, next) => {
-  console.log('Time:', Date.now())
-  next() 
-  }, (req, res, next) => {
   const taipeiTime = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')
   console.log(`${taipeiTime} | ${req.method} from ${req.originalUrl}`);
   next()

@@ -11,7 +11,29 @@
 | HTTP 的方法       | GET/POST           |
 | URL              |  /, /new, /:id     |
 
-  ####  **最後在伺服器要看到的訊息如 2022-03-22 10:46:51 | GET from /new**
+  ####  
+   **在本伺服器啓動後對每條路由的請求，最後在伺服器要看到的訊息是 2022-03-22 10:46:51 | GET from /new**
+
+
+## 啓動方式
+
+- 將專案 clone 到本地端
+
+https://github.com/Steavn-Chen/middleware-exercise.git
+
+- 進入到專案資料夾
+```
+- 安裝 npm
+```
+  npm install
+```
+- 啓動專案
+```
+  npm run dev
+```
+- 若終端機顥示出以下字串，表示成功。
+```
+  App running on port 3000
 
  ## 開發環境
 
