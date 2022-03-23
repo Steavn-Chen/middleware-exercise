@@ -4,9 +4,17 @@ const moment = require('moment')
 const app = express()
 const port = 3000
 
-app.use('/new', (req, res, next) => {
-  const taipeiTime = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')
-  console.log(`${taipeiTime} | ${req.method} from ${req.originalUrl}`);
+app.use('/',  (req, res, next) => {
+  const requestTime = Date.now()
+  const taipeiTime = moment(Date.now()).format("YYYY-MM-DD HH:mm:ss");
+  const { method, originalUrl } = req
+  res.on('finish', () => {
+    const responseTime = Date.now() 
+    const result = responseTime - requestTime;
+    console.log(
+      `${taipeiTime} | ${method} from ${originalUrl} | total time : ${result} ms`
+    );
+  })
   next()
 })
 
@@ -15,7 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/new", (req, res) => {
-  res.send("新增 Todo 頁面");
+  res.send(`<form action='/' method=POST>新增 Todo 頁面<button type="submit"> Submit </button></form>`);
 });
 
 app.get("/:id", (req, res) => {
