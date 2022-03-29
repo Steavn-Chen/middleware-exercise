@@ -5,8 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.17.3",
-    "moment": "^2.29.1",
-    "response-time": "^2.3.2"
+    "moment": "^2.29.1"
   },
   "devDependencies": {},
   "scripts": {
